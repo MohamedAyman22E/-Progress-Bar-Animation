@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="bar">
+        <div class="fill"></div>
+      </div>
+      <div class="counter">0%</div>
+      <button>click to load</button>
+    </div>
+    <div class="output">
+      <span><i class="bx bx-check"></i></span>
+      <div class="text">processing has finished !!</div>
+    </div>
+    <h2 class="heading">created by => mohamed ayman</h2>
+    <script>
+      let container = document.querySelector(".container");
+      let output = document.querySelector(".output");
+      let fill = document.querySelector(".fill");
+      let button = document.querySelector("button");
+      button.addEventListener("click", () => {
+        let a = 0;
+        let run = setInterval(frame, 50);
+        function frame() {
+          a = a + 1;
+          if (a == 101) {
+            clearInterval(run);
+            container.style.display = "none";
+            output.style.display = "block";
+          } else {
+            let counter = document.querySelector(".counter");
+            counter.innerHTML = a + "%";
+            fill.style.width = a + "%";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
